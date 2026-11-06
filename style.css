@@ -1,0 +1,1163 @@
+/* ==========================================================================
+   ESTILOS GERAIS E ESTRUTURA DO SITE
+   ========================================================================== */
+
+/* 1. Variáveis e Configurações Globais */
+:root {
+    /* Cores principais da identidade visual */
+    --cor-laranja: #ff6600;
+    --cor-vermelho: #e63946;
+    --cor-preto: #000000;
+    --cor-branco: #ffffff;
+
+    /* Tema escuro e fundos */
+    --cor-fundo: #000000;
+    --cor-fundo-secao: #0d0d0d;
+    --cor-cartao: #141414;
+    --cor-borda: #2a2a2a;
+
+    /* Tipografia e cores de texto */
+    --cor-titulo: #ffffff;
+    --cor-texto: #f5f5f5;
+    --cor-texto-suave: #a3a3a3;
+    --cor-texto-mutado: #9ca3af;
+
+    /* Destaques, etiquetas e sombras */
+    --cor-laranja-suave: rgba(255, 102, 0, 0.12);
+    --cor-borda-laranja: rgba(255, 102, 0, 0.35);
+    --cor-sombra: rgba(0, 0, 0, 0.5);
+
+    /* Indicador de status */
+    --cor-status-fundo: rgba(16, 185, 129, 0.15);
+    --cor-status-texto: #34d399;
+    --cor-status-ponto: #10b981;
+
+    /* Controles da barra do terminal */
+    --cor-terminal-fechar: #ef4444;
+    --cor-terminal-minimizar: #f59e0b;
+    --cor-terminal-expandir: #10b981;
+
+    /* Tipografia */
+    --fonte-principal: 'Outfit', sans-serif;
+    --fonte-codigo: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Reset básico para manter a consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Barra de progresso de leitura no topo */
+.barra-progresso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--cor-laranja), var(--cor-vermelho));
+    z-index: 200;
+}
+
+/* Acessibilidade para navegação por teclado */
+:focus-visible {
+    outline: 2px solid var(--cor-laranja);
+    outline-offset: 2px;
+}
+
+/* Container centralizador reutilizável */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Revelação suave ao rolar (ativa somente com JavaScript) */
+.js-ativo .revelar-ao-rolar {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.js-ativo .revelar-ao-rolar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Cabeçalho (Header) */
+.cabecalho {
+    background-color: var(--cor-preto);
+    border-bottom: 1px solid var(--cor-borda);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecalho-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.logotipo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+}
+
+.destaque-laranja {
+    color: var(--cor-laranja);
+}
+
+.botao-menu {
+    display: none;
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.7rem 0.55rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linha-menu {
+    width: 100%;
+    height: 2px;
+    background-color: var(--cor-titulo);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-navegacao {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.link-menu {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cor-texto-suave);
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+}
+
+.link-menu.link-ativo {
+    color: var(--cor-laranja);
+    font-weight: 700;
+}
+
+.link-destaque {
+    background-color: var(--cor-laranja);
+    color: var(--cor-preto);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .cabecalho-container {
+        flex-wrap: wrap;
+    }
+
+    .botao-menu {
+        display: flex;
+    }
+
+    .botao-menu[aria-expanded="true"] .linha-menu:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .botao-menu[aria-expanded="true"] .linha-menu:nth-child(2) {
+        opacity: 0;
+    }
+
+    .botao-menu[aria-expanded="true"] .linha-menu:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .navegacao {
+        display: none;
+        width: 100%;
+    }
+
+    .navegacao.menu-aberto {
+        display: block;
+    }
+
+    .menu-navegacao {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        border-top: 1px solid var(--cor-borda);
+    }
+
+    .link-menu {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 3. Seção Sobre (Hero) */
+.secao-sobre {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+    background: radial-gradient(circle at 85% 30%, var(--cor-laranja-suave) 0%, transparent 60%);
+}
+
+.sobre-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.sobre-conteudo {
+    flex: 1;
+}
+
+.etiqueta-destaque {
+    display: inline-block;
+    background-color: var(--cor-laranja-suave);
+    color: var(--cor-laranja);
+    border: 1px solid var(--cor-borda-laranja);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.titulo-principal {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.linha-gradiente {
+    width: 4.5rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cor-laranja), var(--cor-vermelho));
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.texto-apresentacao {
+    font-size: 1.1rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.bloco-habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.habilidade-item {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+}
+
+.grupo-botoes {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.botao-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    background-color: var(--cor-laranja);
+    color: var(--cor-preto);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    background-color: transparent;
+    border: 1px solid var(--cor-titulo);
+    color: var(--cor-titulo);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sobre-cartao {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Cartão com estilo de terminal de comando */
+.cartao-terminal {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 8px 24px var(--cor-sombra);
+}
+
+.barra-terminal {
+    background-color: var(--cor-fundo-secao);
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--cor-borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.botoes-terminal {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.ponto-terminal {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ponto-fechar {
+    background-color: var(--cor-terminal-fechar);
+}
+
+.ponto-minimizar {
+    background-color: var(--cor-terminal-minimizar);
+}
+
+.ponto-expandir {
+    background-color: var(--cor-terminal-expandir);
+}
+
+.titulo-terminal {
+    font-family: var(--fonte-codigo);
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+.corpo-terminal {
+    padding: 1.5rem;
+}
+
+.avatar-perfil {
+    width: 96px;
+    height: 96px;
+    background-color: var(--cor-fundo-secao);
+    border: 2px solid var(--cor-laranja);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 16px rgba(255, 102, 0, 0.25);
+}
+
+.imagem-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 28% 14%;
+    display: block;
+}
+
+.linhas-terminal {
+    font-family: var(--fonte-codigo);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+.linha-codigo {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+}
+
+.chave-codigo {
+    color: var(--cor-laranja);
+    font-weight: 600;
+}
+
+.texto-codigo {
+    color: var(--cor-texto);
+}
+
+.destaque-status {
+    color: var(--cor-status-texto);
+}
+
+@media (max-width: 768px) {
+    .sobre-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .linha-gradiente {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bloco-habilidades,
+    .grupo-botoes {
+        justify-content: center;
+    }
+
+    .titulo-principal {
+        font-size: 2rem;
+    }
+}
+
+/* 4. Seção Tecnologias */
+.secao-tecnologias {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--cor-fundo-secao);
+    border-top: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.cabecalho-secao {
+    text-align: center;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.descricao-secao {
+    font-size: 1rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+}
+
+/* Filtros por categoria */
+.filtros-tecnologias {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.botao-filtro {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-suave);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-filtro.filtro-ativo {
+    background-color: var(--cor-laranja);
+    color: var(--cor-preto);
+    border-color: var(--cor-laranja);
+}
+
+.grade-tecnologias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.cartao-tecnologia {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 1.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.icone-tecnologia {
+    font-size: 2rem;
+    color: var(--cor-laranja);
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.cartao-tecnologia.oculto {
+    display: none;
+}
+
+.cartao-destaque {
+    border-color: var(--cor-borda-laranja);
+    background-color: var(--cor-laranja-suave);
+}
+
+.categoria-tecnologia {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cor-laranja);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.nome-tecnologia {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    margin-bottom: 0.75rem;
+}
+
+.descricao-tecnologia {
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+}
+
+.conteudo-expandido {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--cor-borda);
+}
+
+.cartao-tecnologia[aria-expanded="true"] .conteudo-expandido {
+    display: block;
+}
+
+.texto-utilizacao {
+    font-size: 0.9rem;
+    color: var(--cor-texto-mutado);
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .grade-tecnologias {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-secao {
+        font-size: 1.75rem;
+    }
+}
+
+/* 5. Seção Projetos */
+.secao-projetos {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.grade-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.cartao-projeto {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.etiqueta-projeto {
+    display: inline-block;
+    background-color: var(--cor-laranja-suave);
+    color: var(--cor-laranja);
+    border: 1px solid var(--cor-borda-laranja);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.nome-projeto {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    margin-bottom: 0.75rem;
+}
+
+.descricao-projeto {
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.utilidade-projeto {
+    font-size: 0.9rem;
+    color: var(--cor-texto-mutado);
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .grade-projetos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 6. Seção Contato */
+.secao-contato {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--cor-fundo-secao);
+    border-top: 1px solid var(--cor-borda);
+}
+
+.grade-contatos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cartao-projeto {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartao-contato {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 240px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tipo-contato {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cor-laranja);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.linha-contato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.linha-contato .informacao-contato {
+    margin-bottom: 0;
+}
+
+.informacao-contato {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    overflow-wrap: anywhere;
+}
+
+.botao-copiar {
+    background-color: var(--cor-fundo-secao);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-suave);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    cursor: pointer;
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-copiar.copiado {
+    background-color: var(--cor-laranja-suave);
+    color: var(--cor-laranja);
+    border-color: var(--cor-borda-laranja);
+}
+
+.descricao-contato {
+    font-size: 0.95rem;
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.botao-contato {
+    margin-top: auto;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .grade-contatos {
+        flex-direction: column;
+    }
+}
+
+/* Formulário de contato direto — estilos que seguem o design system do site */
+.formulario-contato {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.titulo-formulario {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Bloco que envolve rótulo + campo + mensagem de erro */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.rotulo-campo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-texto-suave);
+}
+
+/* Campo de texto e área de texto compartilham o mesmo estilo base */
+.entrada-campo {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+}
+
+.entrada-campo::placeholder {
+    color: var(--cor-texto-mutado);
+}
+
+.entrada-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Mensagem de erro por campo — oculta por padrão, visível com a classe 'ativo' */
+.mensagem-erro {
+    display: none;
+    font-size: 0.85rem;
+    color: var(--cor-vermelho);
+    font-weight: 500;
+}
+
+.mensagem-erro.ativo {
+    display: block;
+}
+
+/* Retorno geral do formulário (sucesso ou erro geral) */
+.retorno-formulario {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    display: none; /* oculto até ter mensagem */
+}
+
+.retorno-formulario.retorno-sucesso {
+    display: block;
+    background-color: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: var(--cor-status-texto);
+}
+
+.retorno-formulario.retorno-erro {
+    display: block;
+    background-color: rgba(230, 57, 70, 0.12);
+    border: 1px solid rgba(230, 57, 70, 0.35);
+    color: var(--cor-vermelho);
+}
+
+.botao-enviar {
+    width: 100%;
+    /* Gradiente laranja → vermelho, seguindo a identidade do site */
+    background: linear-gradient(90deg, var(--cor-laranja) 0%, var(--cor-vermelho) 100%);
+    /* Sombra colorida que destaca o botão do fundo escuro */
+    box-shadow: 0 4px 18px rgba(255, 102, 0, 0.35);
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    gap: 0.6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brilho que desliza da esquerda para a direita ao passar o mouse */
+.botao-enviar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transition: left 0.45s ease;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .formulario-contato {
+        margin-top: 2rem;
+    }
+}
+
+/* 7. Rodapé (Footer) */
+.rodape {
+    background-color: var(--cor-preto);
+    color: var(--cor-texto-suave);
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.rodape-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.rodape-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cor-titulo);
+}
+
+.rodape-descricao {
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
+    max-width: 450px;
+    margin-top: 0.5rem;
+}
+
+.rodape-menu {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link-rodape {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+}
+
+.rodape-copyright {
+    border-top: 1px solid var(--cor-borda);
+    width: 100%;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--cor-texto-mutado);
+}
+
+@media (max-width: 600px) {
+    .rodape-menu {
+        gap: 0.5rem;
+    }
+}
+
+/* Botão voltar ao topo */
+.botao-topo {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 90;
+    box-shadow: 0 4px 12px var(--cor-sombra);
+}
+
+.botao-topo.visivel {
+    display: flex;
+}
+
+.seta-topo {
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid var(--cor-laranja);
+    border-top: 2px solid var(--cor-laranja);
+    transform: rotate(45deg);
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   EFEITOS DE HOVER E TRANSIÇÃO
+   ========================================================================== */
+.link-menu {
+    transition: color 0.2s ease;
+}
+
+.link-destaque {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link-rodape {
+    transition: color 0.2s ease;
+}
+
+.botao-principal {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-secundario {
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-filtro {
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-copiar {
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-topo {
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.avatar-perfil {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habilidade-item {
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cartao-tecnologia {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartao-projeto {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartao-contato {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeitos de hover ativos apenas em dispositivos com suporte a mouse/ponteiro */
+@media (hover: hover) {
+    .link-menu:hover {
+        color: var(--cor-laranja);
+    }
+
+    .link-destaque:hover {
+        background-color: var(--cor-vermelho);
+        color: var(--cor-preto);
+    }
+
+    .link-rodape:hover {
+        color: var(--cor-laranja);
+    }
+
+    .botao-principal:hover {
+        background-color: var(--cor-vermelho);
+        color: var(--cor-preto);
+    }
+
+    .botao-secundario:hover {
+        border-color: var(--cor-laranja);
+        color: var(--cor-laranja);
+    }
+
+    .botao-filtro:not(.filtro-ativo):hover {
+        border-color: var(--cor-laranja);
+        color: var(--cor-titulo);
+    }
+
+    .botao-copiar:hover {
+        border-color: var(--cor-laranja);
+        color: var(--cor-laranja);
+    }
+
+    .botao-topo:hover {
+        border-color: var(--cor-laranja);
+        background-color: var(--cor-fundo-secao);
+    }
+
+    .avatar-perfil:hover {
+        transform: scale(1.06);
+        border-color: var(--cor-vermelho);
+        box-shadow: 0 0 24px rgba(255, 102, 0, 0.45);
+    }
+
+    .habilidade-item:hover {
+        border-color: var(--cor-laranja);
+        color: var(--cor-laranja);
+    }
+
+    .cartao-tecnologia:hover {
+        transform: translateY(-4px);
+        border-color: var(--cor-laranja);
+        box-shadow: 0 10px 15px -3px var(--cor-sombra);
+    }
+
+    .cartao-projeto:hover {
+        transform: translateY(-4px);
+        border-color: var(--cor-laranja);
+        box-shadow: 0 10px 15px -3px var(--cor-sombra);
+    }
+
+    .cartao-contato:hover {
+        transform: translateY(-4px);
+        border-color: var(--cor-laranja);
+        box-shadow: 0 10px 15px -3px var(--cor-sombra);
+    }
+
+    /* Desliza o brilho para a direita ao passar o mouse no botão do formulário */
+    .botao-enviar:hover::after {
+        left: 150%;
+    }
+
+    /* Intensifica a sombra no hover para dar sensação de profundidade */
+    .botao-enviar:hover {
+        box-shadow: 0 6px 24px rgba(255, 102, 0, 0.55);
+        background: linear-gradient(90deg, var(--cor-vermelho) 0%, var(--cor-laranja) 100%);
+    }
+}
+
+/* Desativação de animações e rolagem suave para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

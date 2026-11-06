@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Mateus Augusto Fuchs: tecnologias, projetos e contato rápido por WhatsApp ou e-mail.">
+    <meta name="theme-color" content="#000000">
+    <title>Mateus Augusto Fuchs | Portfólio</title>
+    <!-- Fonte moderna via Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Folha de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra de progresso de rolagem -->
+    <div class="barra-progresso" id="barra-progresso" aria-hidden="true"></div>
+
+    <!-- Cabeçalho principal -->
+    <header class="cabecalho">
+        <div class="container cabecalho-container">
+            <a href="#sobre" class="logotipo">Mateus <span class="destaque-laranja">Fuchs</span></a>
+            <button class="botao-menu" aria-label="Abrir menu principal" aria-expanded="false">
+                <span class="linha-menu"></span>
+                <span class="linha-menu"></span>
+                <span class="linha-menu"></span>
+            </button>
+            <nav class="navegacao" aria-label="Menu principal">
+                <ul class="menu-navegacao">
+                    <li><a href="#sobre" class="link-menu">Sobre</a></li>
+                    <li><a href="#tecnologias" class="link-menu">Tecnologias</a></li>
+                    <li><a href="#projetos" class="link-menu">Projetos</a></li>
+                    <li><a href="#contato" class="link-menu link-destaque">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="conteudo-principal">
+
+        <!-- 1. Seção Sobre -->
+        <section id="sobre" class="secao-sobre">
+            <div class="container sobre-container">
+                <div class="sobre-conteudo revelar-ao-rolar">
+                    <span class="etiqueta-destaque">Apresentação</span>
+                    <h1 class="titulo-principal">Olá, eu sou <span class="destaque-laranja">Mateus Augusto Fuchs</span></h1>
+                    <div class="linha-gradiente" aria-hidden="true"></div>
+                    <p class="texto-apresentacao">Sou desenvolvedor front-end apaixonado por criar interfaces limpas, funcionais e centradas na experiência do usuário. Transformo ideias em soluções digitais que combinam design intuitivo com código eficiente e bem estruturado. Meu foco está em resolver problemas reais com lógica de programação aplicada e atenção aos detalhes visuais.</p>
+                    
+                    <div class="bloco-habilidades">
+                        <span class="habilidade-item">Desenvolvimento Web</span>
+                        <span class="habilidade-item">Design UI/UX</span>
+                        <span class="habilidade-item">Front-end</span>
+                        <span class="habilidade-item">Lógica de Programação</span>
+                    </div>
+
+                    <div class="grupo-botoes">
+                        <a href="#contato" class="botao-principal">Me Contratar</a>
+                        <a href="#projetos" class="botao-secundario">Ver Projetos</a>
+                    </div>
+                </div>
+
+                <div class="sobre-cartao revelar-ao-rolar">
+                    <div class="cartao-terminal">
+                        <div class="barra-terminal">
+                            <div class="botoes-terminal">
+                                <span class="ponto-terminal ponto-fechar"></span>
+                                <span class="ponto-terminal ponto-minimizar"></span>
+                                <span class="ponto-terminal ponto-expandir"></span>
+                            </div>
+                            <span class="titulo-terminal">mateus@perfil:~</span>
+                        </div>
+                        <div class="corpo-terminal">
+                            <div class="avatar-perfil">
+                                <img src="img/foto-perfil.jpg" alt="Foto de perfil de Mateus Augusto Fuchs desenvolvendo código em seu notebook" class="imagem-perfil">
+                            </div>
+                            <div class="linhas-terminal">
+                                <p class="linha-codigo"><span class="chave-codigo">nome:</span> <span class="texto-codigo">"Mateus Augusto Fuchs"</span></p>
+                                <p class="linha-codigo"><span class="chave-codigo">cargo:</span> <span class="texto-codigo">"Desenvolvedor Front-end / UI Designer"</span></p>
+                                <p class="linha-codigo"><span class="chave-codigo">tecnologias:</span> <span class="texto-codigo">"HTML, CSS, JavaScript, Figma"</span></p>
+                                <p class="linha-codigo"><span class="chave-codigo">status:</span> <span class="destaque-status">"Disponível para novos projetos"</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Seção Tecnologias -->
+        <section id="tecnologias" class="secao-tecnologias">
+            <div class="container">
+                <div class="cabecalho-secao revelar-ao-rolar">
+                    <span class="etiqueta-destaque">Habilidades Técnicas</span>
+                    <h2 class="titulo-secao">Tecnologias e Ferramentas</h2>
+                    <p class="descricao-secao">Ferramentas que utilizo para desenvolver projetos completos, da concepção visual ao código funcional.</p>
+                </div>
+
+                <!-- Botões de filtro por categoria -->
+                <div class="filtros-tecnologias revelar-ao-rolar" role="tablist" aria-label="Filtro de tecnologias">
+                    <button class="botao-filtro filtro-ativo" data-filtro="todas">Todas</button>
+                    <button class="botao-filtro" data-filtro="codigo">Código</button>
+                    <button class="botao-filtro" data-filtro="design">Design</button>
+                    <button class="botao-filtro" data-filtro="midia-ia">Mídia e IA</button>
+                </div>
+
+                <div class="grade-tecnologias">
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="codigo" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-brands fa-html5 icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Estruturação</span>
+                        <h3 class="nome-tecnologia">HTML5</h3>
+                        <p class="descricao-tecnologia">Construção de páginas semânticas, organizadas e acessíveis para usuários e motores de busca.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Uso para estruturar páginas web com marcação semântica, hierarquia clara de conteúdo e boas práticas de acessibilidade — garantindo que o site seja compreensível por usuários e motores de busca.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="codigo" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-brands fa-css3-alt icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Estilização</span>
+                        <h3 class="nome-tecnologia">CSS3</h3>
+                        <p class="descricao-tecnologia">Criação de layouts responsivos, modernos e atraentes com foco na experiência visual em qualquer dispositivo.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Utilizo Flexbox e Grid para construir layouts adaptáveis a qualquer tela, além de variáveis CSS, animações e transições para criar interfaces com identidade visual coesa e interações fluidas.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="codigo" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-brands fa-js icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Interatividade</span>
+                        <h3 class="nome-tecnologia">JavaScript</h3>
+                        <p class="descricao-tecnologia">Implementação de comportamentos dinâmicos, manipulação do DOM e soluções lógicas para o navegador.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Aplico JavaScript para manipular o DOM, responder a eventos do usuário, criar animações baseadas em scroll e tornar as páginas interativas sem depender de bibliotecas externas.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="design" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-brands fa-figma icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Design de Interface</span>
+                        <h3 class="nome-tecnologia">Figma</h3>
+                        <p class="descricao-tecnologia">Planejamento e prototipagem de interfaces intuitivas, alinhando visual e usabilidade antes do código.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Crio wireframes e protótipos interativos no Figma antes de escrever qualquer linha de código, definindo paleta de cores, tipografia e fluxo de navegação para garantir um resultado visual consistente.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="design" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-solid fa-pen-ruler icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Criação Gráfica</span>
+                        <h3 class="nome-tecnologia">Adobe Express</h3>
+                        <p class="descricao-tecnologia">Produção rápida de peças gráficas, banners e elementos visuais para apoiar a identidade dos projetos.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Uso para criar rapidamente capas, banners e materiais gráficos que reforçam a identidade visual de cada projeto, mantendo consistência entre o design digital e as peças de comunicação.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia revelar-ao-rolar" data-categoria="midia-ia" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-solid fa-film icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Edição de Vídeo</span>
+                        <h3 class="nome-tecnologia">CapCut</h3>
+                        <p class="descricao-tecnologia">Criação e edição de conteúdos audiovisuais dinâmicos para demonstrações e apresentações de produtos.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Edito vídeos de demonstração de projetos, tutoriais e apresentações profissionais com transições, legendas e efeitos visuais que tornam o conteúdo mais dinâmico e fácil de entender.</p>
+                        </div>
+                    </article>
+
+                    <article class="cartao-tecnologia cartao-destaque revelar-ao-rolar" data-categoria="midia-ia" tabindex="0" role="button" aria-expanded="false">
+                        <i class="fa-solid fa-robot icone-tecnologia" aria-hidden="true"></i>
+                        <span class="categoria-tecnologia">Produtividade</span>
+                        <h3 class="nome-tecnologia">Inteligência Artificial (IA)</h3>
+                        <p class="descricao-tecnologia">Utilização de ferramentas de IA para otimização do fluxo de trabalho, documentação e resolução ágil de problemas.</p>
+                        <div class="conteudo-expandido">
+                            <p class="texto-utilizacao">Integro ferramentas de IA no meu fluxo de trabalho para acelerar pesquisas, revisar código, gerar rascunhos de texto e explorar soluções criativas — aumentando a produtividade sem abrir mão da qualidade.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. Seção Projetos -->
+        <section id="projetos" class="secao-projetos">
+            <div class="container">
+                <div class="cabecalho-secao revelar-ao-rolar">
+                    <span class="etiqueta-destaque">Projetos</span>
+                    <h2 class="titulo-secao">Projetos em Destaque</h2>
+                    <p class="descricao-secao">Aplicações práticas que demonstram como utilizo a programação para solucionar necessidades reais da área.</p>
+                </div>
+
+                <!-- Container vazio: o JavaScript lê o array de projetos
+                     e cria um cartão para cada um com um for -->
+                <div class="grade-projetos" id="grade-projetos"></div>
+            </div>
+        </section>
+
+        <!-- 4. Seção Contato -->
+        <section id="contato" class="secao-contato">
+            <div class="container">
+                <div class="cabecalho-secao revelar-ao-rolar">
+                    <span class="etiqueta-destaque">Vamos Conversar</span>
+                    <h2 class="titulo-secao">Entre em Contato</h2>
+                    <p class="descricao-secao">Estou disponível para novas oportunidades e projetos. Escolha o canal de sua preferência para conversarmos.</p>
+                </div>
+
+                <div class="grade-contatos">
+                    <article class="cartao-contato revelar-ao-rolar">
+                        <span class="tipo-contato">WhatsApp</span>
+                        <div class="linha-contato">
+                            <h3 class="informacao-contato">+55 44 99932-8618</h3>
+                            <button class="botao-copiar" data-copiar="+5544999328618" aria-label="Copiar número do WhatsApp">Copiar</button>
+                        </div>
+                        <p class="descricao-contato">Conversa rápida para tirar dúvidas ou alinhar propostas de trabalho.</p>
+                        <a href="https://wa.me/5544999328618?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" class="botao-principal botao-contato">Chamar no WhatsApp</a>
+                    </article>
+
+                    <article class="cartao-contato revelar-ao-rolar">
+                        <span class="tipo-contato">E-mail</span>
+                        <div class="linha-contato">
+                            <h3 class="informacao-contato">mafafuchs@gmail.com</h3>
+                            <button class="botao-copiar" data-copiar="mafafuchs@gmail.com" aria-label="Copiar endereço de e-mail">Copiar</button>
+                        </div>
+                        <p class="descricao-contato">Envio de propostas detalhadas, documentações ou convites profissionais.</p>
+                        <a href="mailto:mafafuchs@gmail.com" class="botao-principal botao-contato">Enviar E-mail</a>
+                    </article>
+                </div>
+
+                <!-- Formulário de contato direto.
+                     O JavaScript cuida da validação e do retorno visual de erro/sucesso. -->
+                <form class="formulario-contato revelar-ao-rolar" id="formulario-contato" novalidate>
+                    <h3 class="titulo-formulario">Ou envie uma mensagem diretamente</h3>
+
+                    <!-- Campo: nome do visitante -->
+                    <div class="campo-formulario">
+                        <label for="campo-nome" class="rotulo-campo">Nome</label>
+                        <input
+                            type="text"
+                            id="campo-nome"
+                            name="nome"
+                            class="entrada-campo"
+                            placeholder="Seu nome completo"
+                            autocomplete="name"
+                        >
+                        <!-- Área onde o JS exibe a mensagem de erro deste campo -->
+                        <span class="mensagem-erro" id="erro-nome" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Campo: e-mail do visitante -->
+                    <div class="campo-formulario">
+                        <label for="campo-email" class="rotulo-campo">E-mail</label>
+                        <input
+                            type="email"
+                            id="campo-email"
+                            name="email"
+                            class="entrada-campo"
+                            placeholder="seu@email.com"
+                            autocomplete="email"
+                        >
+                        <span class="mensagem-erro" id="erro-email" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Campo: mensagem do visitante -->
+                    <div class="campo-formulario">
+                        <label for="campo-mensagem" class="rotulo-campo">Mensagem</label>
+                        <textarea
+                            id="campo-mensagem"
+                            name="mensagem"
+                            class="entrada-campo entrada-textarea"
+                            placeholder="Como posso te ajudar?"
+                            rows="5"
+                        ></textarea>
+                        <span class="mensagem-erro" id="erro-mensagem" aria-live="polite"></span>
+                    </div>
+
+                    <!-- Área onde o JS exibe o retorno geral (sucesso ou erro geral) -->
+                    <div class="retorno-formulario" id="retorno-formulario" aria-live="polite"></div>
+
+                    <button type="submit" class="botao-principal botao-enviar">
+                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container rodape-container">
+            <div class="rodape-info">
+                <p class="rodape-logo">Mateus <span class="destaque-laranja">Fuchs</span></p>
+                <p class="rodape-descricao">Transformando linhas de código em experiências digitais memoráveis.</p>
+            </div>
+            <nav class="rodape-navegacao" aria-label="Menu principal">
+                <ul class="rodape-menu">
+                    <li><a href="#sobre" class="link-rodape">Sobre</a></li>
+                    <li><a href="#tecnologias" class="link-rodape">Tecnologias</a></li>
+                    <li><a href="#projetos" class="link-rodape">Projetos</a></li>
+                    <li><a href="#contato" class="link-rodape">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="rodape-copyright">
+                <p>&copy; 2026 Mateus Augusto Fuchs. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button class="botao-topo" id="botao-topo" aria-label="Voltar ao início da página">
+        <span class="seta-topo" aria-hidden="true"></span>
+    </button>
+
+    <!-- Arquivo de scripts JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
